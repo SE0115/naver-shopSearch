@@ -16,7 +16,7 @@ const client_id = "eQaD0chJ_nOgLGrCTdaS";
 const client_secret = "c0EyvFQYF3";
 let api_url = "https://openapi.naver.com/v1/search/shop?query=";
 
-app.get("/search/:input", async (req, res) => {
+app.post("/search/:input", async (req, res) => {
   let { input } = req.params;
   console.log(input);
 
@@ -35,7 +35,7 @@ app.get("/search/:input", async (req, res) => {
   );
 });
 
-app.get("/auto/:input", async (req, res) => {
+app.post("/auto/:input", async (req, res) => {
   let { input } = req.params;
   console.log(input);
 

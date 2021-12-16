@@ -90,8 +90,8 @@ function Search() {
     }
   }, [conditions])
 
-  const onSearch = async () => {
-    await search(conditions).then((res) => {
+  const onSearch = () => {
+    search(conditions).then((res) => {
       console.log('결과값: ', res.items)
       setProducts(res.items)
     })
@@ -105,11 +105,11 @@ function Search() {
   }
 
   const onFocus = () => { setRelatedBox(true) }  
-  const onBlur = () => { 
-    setTimeout(() => {
-      setRelatedBox(false)
-    }, 200); 
-  }  
+  // const onBlur = () => { 
+  //   setTimeout(() => {
+  //     setRelatedBox(false)
+  //   }, 200); 
+  // }  
 
   return (
     <>
@@ -120,7 +120,7 @@ function Search() {
           onChange={onChange}
           value={conditions.search_word}
           onFocus={onFocus} 
-          onBlur={onBlur}
+          // onBlur={onBlur}
         / >
         <button onClick={onSearch}>검색</button>
         <RelatedSearch relatedSearch={relatedSearch} getRelated={getRelated} visible={relatedBox} />
